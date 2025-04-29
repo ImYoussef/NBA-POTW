@@ -95,5 +95,4 @@ function showFeatured() {
       </div>
     </div>`;
   }
-  
 }
