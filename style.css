@@ -1,0 +1,404 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000; 
+}
+
+#app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* BLACK for real */
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: 700; /* Bold */
+}
+
+p, li, button, a, span {
+  font-weight: 400; /* Normal */
+}
+
+#sideMenu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px; /* a little wider looks better */
+  height: 100%;
+  background-color: #131313;
+  transition: left 0.3s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+#menuContent {
+  margin-top: 220px; /* 👈 Control how LOW the tabs are */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* 👈 Space between buttons */
+}
+
+#sideMenu ul {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center; /* 👈 center align all text inside the UL */
+}
+
+#sideMenu li {
+  list-style: none;
+  margin: 25px 0;  /* 👈 extra spacing between tabs */
+}
+
+#sideMenu.active {
+  left: 0;
+}
+
+#sideMenu .btn-link {
+  font-size: 28px;   /* 👈 bigger font size */
+  font-weight: 600;  /* 👈 semi-bold */
+  color: #ffffff;    /* 👈 blue color */
+  text-decoration: none;
+  width: 100%;
+}
+
+#sideMenu .btn-link:hover {
+  color: #7c0000;    /* 👈 darker blue on hover */
+}
+
+/* Style for side menu buttons */
+.menu-btn {
+  background: none;
+  border: none;
+  color: #cc0000;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
+  padding: 12px 10px;
+  margin-bottom: 12px;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 6px;
+}
+
+/* Hover effect */
+.menu-btn:hover {
+  background-color: #810000; /* Bootstrap primary color */
+  color: #fff;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+#menuToggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1101; /* higher than sideMenu */
+  background: none;
+  border: none;
+  filter: brightness(0) invert(1);
+}
+
+#menuToggle img {
+  width: 30px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* Dark semi-transparent */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 900; /* Behind the sideMenu */
+}
+
+/* When active */
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#nbaLogo {
+  position: absolute;
+  top: 05px;
+  right: 20px;
+  width: 100px;
+  height: 80px;
+  z-index: 2;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mainContent {
+  min-height: calc(100vh - 70px); /* 100% screen height minus navbar height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 👈 Vertical center */
+  align-items: center;     /* 👈 Horizontal center */
+  text-align: center;
+  padding-top: 70px;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.page-section {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: none;
+}
+
+.page-section.active {
+  opacity: 1;
+  display: block;
+}
+
+#homePage {
+  min-height: calc(100vh - 80px); /* Full screen height minus navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #000; /* 👈 BLACK background */
+  color: #fff; /* 👈 Make text white */
+  position: relative;
+}
+
+.player-background {
+  position: relative;
+  width: 90vw;
+  max-width: 400px;
+  height: 500px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;  /* Keeps Lebron’s image within bounds */
+}
+
+.placeholder-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.featured-bg-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; /* behind the player */
+  opacity: 1;
+}
+
+.player-photo {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  z-index: 2;
+  object-fit: contain;
+  transform: scale(1.6);
+  transform-origin: bottom center;
+  /* Enhanced ESPN-style shadow */
+  filter: drop-shadow(-10px 10px 15px rgba(0, 0, 0, 0.3)) 
+          drop-shadow(-5px 5px 8px rgba(0, 0, 0, 0.3))
+          drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+/* Position the team logo outside the player background */
+.home-content {
+  position: relative;  /* Make this relative so we can position the logo outside of it */
+}
+
+.team-logo {
+  position: absolute;
+  bottom: 160px;  /* Moves logo just outside the bottom */
+  right: -50px;   /* Moves it outside the right edge of the player background */
+  width: 150px;   /* Adjust size as needed */
+  z-index: 3;     /* Ensures it's above other elements */
+  filter: drop-shadow(-10px 10px 15px rgba(0, 0, 0, 0.6)) 
+  drop-shadow(-5px 5px 8px rgba(0, 0, 0, 0.4))
+  drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+#featuredPage {
+  min-height: calc(100vh - 80px); /* Full screen height minus navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background-color: #000;
+}
+
+#featuredPlayers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.player-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 0px;
+  font-size: 50px;
+  font-weight: 2000; /* Bold */
+  color: #C9082A;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700; /* Bold */
+}
+
+.stat span:first-child {
+  color: white; /* NBA red */
+  font-size: 32px;
+  font-weight: 700; /* Bold */
+}
+
+.stat-label {
+  font-size: 16px;
+  color: white;
+  margin-top: 5px;
+  font-weight: 700; /* Bold */
+  
+}
+.stat-line {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.featured-card {
+  display: flex;
+  background-color: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  max-width: 700px;
+  width: 90%;
+  height: 200px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.featured-image-container {
+  flex: 2;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  z-index: 2;
+}
+
+.featured-player-photo {
+  position: relative;
+  z-index: 3;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(-8px 8px 10px rgba(0, 0, 0, 0.3)) 
+          drop-shadow(-4px 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.featured-stats {
+  flex: 1;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* 👈 center align everything */
+  text-align: center;
+}
+
+.featured-stats h5 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  
+}
+
+.featured-image-container img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(-10px 10px 15px rgba(0, 0, 0, 0.3)) 
+          drop-shadow(-5px 5px 8px rgba(0, 0, 0, 0.3))
+          drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+.team-logo-float {
+  position: absolute;
+  bottom: 10px;
+  right: -10px;
+  width: 80px;
+  z-index: 1;
+  filter: drop-shadow(-10px 10px 15px rgba(0, 0, 0, 0.6)) 
+          drop-shadow(-5px 5px 8px rgba(0, 0, 0, 0.4))
+          drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+.team-logo-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+  z-index: 2;
+}

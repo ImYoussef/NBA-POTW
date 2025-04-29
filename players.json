@@ -1,0 +1,93 @@
+[
+    {
+      "name": "LeBron James",
+      "team": "Los Angeles Lakers",
+      "teamLogo": "lakers.png",
+      "playerImage": "lebron.png",
+      "points": 30.5,
+      "assists": 8.2,
+      "blocks": 1.1
+    },
+    {
+      "name": "Stephen Curry",
+      "team": "Golden State Warriors",
+      "teamLogo": "warriors.png",
+      "playerImage": "curry.png",
+      "points": 29.8,
+      "assists": 6.7,
+      "blocks": 0.4
+    },
+    {
+      "name": "Giannis Antetokounmpo",
+      "team": "Milwaukee Bucks",
+      "teamLogo": "bucks.png",
+      "playerImage": "giannis.png",
+      "points": 31.2,
+      "assists": 5.5,
+      "blocks": 1.5
+    },
+    {
+      "name": "Kevin Durant",
+      "team": "Phoenix Suns",
+      "teamLogo": "suns.png",
+      "playerImage": "durant.png",
+      "points": 28.4,
+      "assists": 5.9,
+      "blocks": 1.2
+    },
+    {
+      "name": "Luka Doncic",
+      "team": "Dallas Mavericks",
+      "teamLogo": "mavs.png",
+      "playerImage": "luka.png",
+      "points": 32.0,
+      "assists": 9.1,
+      "blocks": 0.5
+    },
+    {
+      "name": "Joel Embiid",
+      "team": "Philadelphia 76ers",
+      "teamLogo": "sixers.png",
+      "playerImage": "embiid.png",
+      "points": 33.1,
+      "assists": 4.2,
+      "blocks": 1.7
+    },
+    {
+      "name": "Jayson Tatum",
+      "team": "Boston Celtics",
+      "teamLogo": "celtics.png",
+      "playerImage": "tatum.png",
+      "points": 27.9,
+      "assists": 4.3,
+      "blocks": 0.7
+    },
+    {
+      "name": "Ja Morant",
+      "team": "Memphis Grizzlies",
+      "teamLogo": "grizzlies.png",
+      "playerImage": "morant.png",
+      "points": 27.1,
+      "assists": 8.5,
+      "blocks": 0.3
+    },
+    {
+      "name": "Jimmy Butler",
+      "team": "Miami Heat",
+      "teamLogo": "heat.png",
+      "playerImage": "butler.png",
+      "points": 23.5,
+      "assists": 5.3,
+      "blocks": 0.6
+    },
+    {
+      "name": "Nikola Jokic",
+      "team": "Denver Nuggets",
+      "teamLogo": "nuggets.png",
+      "playerImage": "jokic.png",
+      "points": 25.0,
+      "assists": 10.2,
+      "blocks": 0.9
+    }
+  ]
+  
